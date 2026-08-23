@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaleidoscope Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kaleidoscope Studio</h1>
+    <p class="tagline">Draw one stroke — see it bloom into symmetry.</p>
+  </header>
+
+  <main class="layout">
+    <!-- Page 1: Studio -->
+    <section class="page" id="page-studio">
+      <aside class="sidebar">
+        <h2>Controls</h2>
+
+        <div class="control">
+          <label for="symmetry">Symmetry slices</label>
+          <input type="range" id="symmetry" min="2" max="24" value="8" />
+          <span class="value" id="symmetryValue">8</span>
+        </div>
+
+        <div class="control">
+          <label for="brushSize">Brush size</label>
+          <input type="range" id="brushSize" min="1" max="60" value="6" />
+          <span class="value" id="brushSizeValue">6</span>
+        </div>
+
+        <div class="control">
+          <label for="hueShift">Hue shift on stroke</label>
+          <input type="range" id="hueShift" min="0" max="60" value="6" />
+          <span class="value" id="hueShiftValue">6</span>
+        </div>
+
+        <div class="control">
+          <label for="color">Color</label>
+          <input type="color" id="color" value="#ff5577" />
+        </div>
+
+        <div class="buttons">
+          <button id="clearBtn" class="btn btn-ghost">Clear</button>
+          <button id="saveBtn" class="btn btn-primary">Save PNG</button>
+          <a href="#page-gallery" class="btn btn-link">Gallery →</a>
+        </div>
+
+        <p class="hint">Hold <kbd>Shift</kbd> to draw a straight line.<br/>Press <kbd>Space</kbd> for a random color burst.</p>
+      </aside>
+
+      <div class="canvas-wrap">
+        <canvas id="art" width="900" height="900"></canvas>
+      </div>
+    </section>
+
+    <!-- Page 2: Gallery -->
+    <section class="page" id="page-gallery">
+      <div class="gallery-head">
+        <h2>Saved pieces</h2>
+        <a href="#page-studio" class="btn btn-link">← Back to studio</a>
+      </div>
+      <div id="gallery" class="gallery">
+        <p class="empty" id="emptyMsg">No saves yet. Tap <strong>Save PNG</strong> on the studio to add a piece here.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
